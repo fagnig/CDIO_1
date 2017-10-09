@@ -21,6 +21,6 @@ public class Cup {
 		return values[0] + values[1];
 	}
 	public boolean getResult() {
-		return true
+		return true;
 	}
 	}
