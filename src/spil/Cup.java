@@ -8,8 +8,7 @@ public class Cup {
 	private int[] values = new int[2];
 	
 	public int[] kast() {
-		values[0] = randGen.nextInt(6)+1;
-		values[1] = randGen.nextInt(6)+1;
+		roll();
 		if(values[0]==values[1])
 			isDouble = true;
 		else
@@ -20,7 +19,14 @@ public class Cup {
 	public int getSum() {
 		return values[0] + values[1];
 	}
-	public boolean getResult() {
-		return true;
+	
+	public boolean getEns() {
+		return isDouble;
 	}
+	
+	public void roll() {
+		values[0] = randGen.nextInt(6)+1;
+		values[1] = randGen.nextInt(6)+1;
 	}
+	
+}
