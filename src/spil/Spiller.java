@@ -1,16 +1,21 @@
 package spil;
 
+
+
 public class Spiller {
 	private int id;
-	private boolean beastMode;
-	private static int playerCount = 0;
-	private Cup cup = new Cup();
+
+	private static int playerCount;
+	private Cup cup;
+
 	
 	private int point = 0;
+	private boolean beastMode = false;
 	
 	
 	public Spiller() {
 		id = playerCount;
+		cup = new Cup();
 		playerCount++;
 	}
 	
@@ -18,35 +23,35 @@ public class Spiller {
 		return playerCount;
 	}
 	
+	public boolean isBeast() {
+		return(cup.getEns() && cup.getSum() == 12 && beastMode);
+	}
+	
 	public boolean playTurn() {
 		cup.kast();
-		if (cup.getEns() == true && cup.getSum() == 12) {
-			if (beastMode = true) {
-				return true;
-			}
+		
+		//Beastmode
+		if(cup.getEns() && cup.getSum() == 12) {
 			beastMode = true;
-		} else {
+		}
+		else {
+			//Spilleren slog ikke 2 6'ere, så sæt til false
 			beastMode = false;
 		}
-		if (point >= 40 && cup.getEns()) {
-			return true;
-		}
-		point = point + cup.getSum();
-		if (cup.getEns() == true && cup.getSum() == 2) {
+
+		//Hvis spilleren slår 2 1'ere og har mindre end 40 point, sættes score til 0.
+		if(cup.getEns() && point < 40 && cup.getSum()==2)
+
 			point = 0;
-		}
-		return false;
-	}
-	
-	public int getID() {
-		return id;
-	}
-	
-	public Cup getCup() {
-		return cup;
+		else
+			point += cup.getSum();	
+		
+		
+		return cup.getEns();
 	}
 	
 	public int getPoints() {
 		return point;
 	}
+	
 }
