@@ -3,7 +3,7 @@ package spil;
 public class Spiller {
 	private int id;
 	private boolean beastMode;
-	private static int playerCount;
+	private static int playerCount = 0;
 	private Cup cup = new Cup();
 	
 	private int point = 0;
@@ -32,7 +32,7 @@ public class Spiller {
 			return true;
 		}
 		point = point + cup.getSum();
-		if (cup.getEns() == true && cup.getSum() == 0) {
+		if (cup.getEns() == true && cup.getSum() == 2) {
 			point = 0;
 		}
 		return false;
@@ -44,5 +44,9 @@ public class Spiller {
 	
 	public Cup getCup() {
 		return cup;
+	}
+	
+	public int getPoints() {
+		return point;
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 public class Cup {
 	private static Random randGen;
 	private boolean isDouble;
-	private boolean beastMode;
+	//private boolean beastMode;
 	private int[] values = new int[2];
 	
 	public int[] kast() {
@@ -22,9 +22,9 @@ public class Cup {
 		return values[0] + values[1];
 	}
 	
-	public boolean getBeast() {
+	/*public boolean getBeast() {
 		return beastMode;
-	}
+	}*/
 	
 	public boolean getEns() {
 		return isDouble;
