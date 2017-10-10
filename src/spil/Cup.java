@@ -1,41 +1,32 @@
 package spil;
 
 import java.util.Random;
+import desktop_resources.GUI;
+
+
+
 
 public class Cup {
-	private static Random randGen;
-	private boolean isDouble;
-	//private boolean beastMode;
-	private int[] values = new int[2];
-	
-	public int[] kast() {
-		roll();
-		if(values[0]==values[1]) {
-			isDouble = true;
-		} else {
-			isDouble = false;
-		}
-		return values;
+
+	private Random randGen;
+	public Cup() {
+		randGen = new Random();
+
+	}
+	private int t1 = 0;
+	private int t2 = 0;
+	public void kast() {
+		t1 = randGen.nextInt(6)+1;
+		t2 = randGen.nextInt(6)+1;
+		GUI.setDice(t1, t2);
 	}
 	
+
 	public int getSum() {
-		return values[0] + values[1];
+		return t1 + t2;
 	}
-	
-	/*public boolean getBeast() {
-		return beastMode;
-	}*/
-	
+
 	public boolean getEns() {
-		return isDouble;
-	}
-	
-	public void roll() {
-		values[0] = randGen.nextInt(6)+1;
-		values[1] = randGen.nextInt(6)+1;
-	}
-	
-	public int[] getFaceValues() {
-		return values;
+		return (t1==t2);
 	}
 }
