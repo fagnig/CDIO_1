@@ -18,9 +18,13 @@ public class Spiller {
 	}
 	
 	public void playTurn() {
-		
+		boolean lastTurn = cup.getEns();
+		cup.kast();
+		point = point + cup.getSum();
 	}
 	
-	
+	public int getID() {
+		return id;
+	}
 	
 }
