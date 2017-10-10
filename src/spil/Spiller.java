@@ -4,8 +4,10 @@ package spil;
 
 public class Spiller {
 	private int id;
+
 	private static int playerCount;
 	private Cup cup;
+
 	
 	private int point = 0;
 	private boolean beastMode = false;
@@ -36,8 +38,10 @@ public class Spiller {
 			//Spilleren slog ikke 2 6'ere, så sæt til false
 			beastMode = false;
 		}
+
 		//Hvis spilleren slår 2 1'ere og har mindre end 40 point, sættes score til 0.
 		if(cup.getEns() && point < 40 && cup.getSum()==2)
+
 			point = 0;
 		else
 			point += cup.getSum();	
@@ -49,6 +53,5 @@ public class Spiller {
 	public int getPoints() {
 		return point;
 	}
-	
 	
 }

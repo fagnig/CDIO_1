@@ -11,6 +11,7 @@ public class Cup {
 	private Random randGen;
 	public Cup() {
 		randGen = new Random();
+
 	}
 	private int t1 = 0;
 	private int t2 = 0;
@@ -20,9 +21,11 @@ public class Cup {
 		GUI.setDice(t1, t2);
 	}
 	
+
 	public int getSum() {
 		return t1 + t2;
 	}
+
 	public boolean getEns() {
 		return (t1==t2);
 	}
