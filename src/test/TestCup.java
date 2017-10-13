@@ -38,6 +38,7 @@ public class TestCup {
 		int count[] = new int[12];
 		int benis[] = new int[12];
 		int countDouble = 0;
+		int occuranceCount = 0;
 		
 		benis[0] = 0;
 		benis[1] = (1/36)*antalTerningKast;
@@ -63,14 +64,23 @@ public class TestCup {
 		
 		//Printing for user
 		for (int i=0; i<=11; i++) {
-			System.out.println(count[i]);
+			System.out.print((i+1)+" optræder: ");
+			System.out.println(count[i]+" gange.");
 		}
-		System.out.println(countDouble);
+		//Calculates sum of occurance
+		for (int i=0; i<=11; i++) {
+			occuranceCount += count[i];
+			
+		}
+		//Printing for user
+		System.out.println("\n"+"vi har kastet "+ occuranceCount + " gange \n");
+		System.out.println("vi slog 2 ens: "+countDouble+" gange.");
+		
 		
 		//Ensuring it's inside legal limits
 		for (int i=0; i>=11; i++) {
-			assertTrue("outside threshhold", count[i]>=benis[i]-0.05*antalTerningKast);
-			assertTrue("outside threshhold", count[i]<=benis[i]+0.05*antalTerningKast);
+			assertTrue("outside threshhold", count[i]>=benis[i]+0.05*antalTerningKast);
+			assertTrue("outside threshhold", count[i]<=benis[i]-0.05*antalTerningKast);
 		}
 		
 		assertTrue("outside threshhold", countDouble>=antalTerningKast/6-0.05*antalTerningKast);
